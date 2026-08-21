@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <meta name="description" content="Velora - find and book quiet, characterful stays across India.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include("partials/navbar", { user: user }) %>
+
+  <header class="hero">
+    <div class="hero__eyebrow">Boarding pass to somewhere quiet</div>
+    <h1>Find your next stay, wherever quiet lives.</h1>
+    <p>Velora curates small, characterful stays across India &mdash; hillside cottages, backwater houseboats, desert havelis &mdash; so you can book in minutes and worry about nothing else.</p>
+    <div class="hero__actions">
+      <a href="/stays" class="btn btn--brass">Browse stays</a>
+      <a href="#featured" class="btn btn--ghost-invert">See featured picks</a>
+    </div>
+    <div class="hero__route">
+      <span>HOME</span><span class="dash"></span><span>ANYWHERE</span>
+    </div>
+  </header>
+
+  <section class="section" id="featured">
+    <div class="section__head container" style="padding:0;">
+      <h2>Featured stays</h2>
+      <p><a href="/stays" style="text-decoration:none; color: var(--teal); font-weight:600;">View all stays &rarr;</a></p>
+    </div>
+    <div class="cards">
+      <% hotels.forEach(h => { %>
+        <a class="ticket" href="/stays/<%= h.id %>">
+          <img class="ticket__image" src="<%= h.image %>" alt="<%= h.name %>, <%= h.location %>">
+          <div class="ticket__body">
+            <p class="ticket__location"><%= h.location %></p>
+            <h3 class="ticket__name"><%= h.name %></h3>
+            <p class="ticket__rating">&#9733; <%= h.rating %></p>
+            <div class="ticket__stub">
+              <span class="ticket__price">&#8377;<%= h.price.toLocaleString("en-IN") %><span>per night</span></span>
+              <span class="btn btn--outline" style="padding:8px 16px; font-size:13px;">View</span>
+            </div>
+          </div>
+        </a>
+      <% }) %>
+    </div>
+  </section>
+
+  <%- include("partials/footer") %>
+  <script src="/js/main.js"></script>
+</body>
+</html>

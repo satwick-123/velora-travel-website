@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include("partials/navbar") %>
+
+  <header class="hero" style="padding: 64px 32px 78px;">
+    <div class="hero__eyebrow">All departures</div>
+    <h1 style="font-size: clamp(30px, 4vw, 44px);">Every stay, one page.</h1>
+    <p>Browse all <%= hotels.length %> Velora stays and pick the one that matches your trip.</p>
+  </header>
+
+  <section class="section">
+    <div class="cards">
+      <% hotels.forEach(h => { %>
+        <a class="ticket" href="/stays/<%= h.id %>">
+          <img class="ticket__image" src="<%= h.image %>" alt="<%= h.name %>, <%= h.location %>">
+          <div class="ticket__body">
+            <p class="ticket__location"><%= h.location %></p>
+            <h3 class="ticket__name"><%= h.name %></h3>
+            <p class="ticket__rating">&#9733; <%= h.rating %></p>
+            <div class="ticket__stub">
+              <span class="ticket__price">&#8377;<%= h.price.toLocaleString("en-IN") %><span>per night</span></span>
+              <span class="btn btn--outline" style="padding:8px 16px; font-size:13px;">View</span>
+            </div>
+          </div>
+        </a>
+      <% }) %>
+    </div>
+  </section>
+
+  <%- include("partials/footer") %>
+  <script src="/js/main.js"></script>
+</body>
+</html>

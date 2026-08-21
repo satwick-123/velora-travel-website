@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include("partials/navbar") %>
+
+  <div class="confirm">
+    <div class="confirm__badge">&#10003;</div>
+    <h1>Booking confirmed</h1>
+    <p>Your stay at <%= hotel.name %> is locked in. A confirmation has been sent to <%= booking.userEmail %>.</p>
+
+    <div class="confirm__ticket">
+      <div class="confirm__ticket-head">
+        <span>Velora &middot; #<%= String(booking.id).padStart(5, "0") %></span>
+        <span><%= hotel.location %></span>
+      </div>
+      <div class="confirm__rows">
+        <div class="confirm__row"><span>Stay</span><span><%= hotel.name %></span></div>
+        <div class="confirm__row"><span>Check-in</span><span><%= booking.checkIn %></span></div>
+        <div class="confirm__row"><span>Check-out</span><span><%= booking.checkOut %></span></div>
+        <div class="confirm__row"><span>Guests</span><span><%= booking.guests %></span></div>
+        <div class="confirm__row"><span>Nights</span><span><%= nights %></span></div>
+        <div class="confirm__row"><span>Total</span><span>&#8377;<%= total.toLocaleString("en-IN") %></span></div>
+      </div>
+    </div>
+
+    <p style="margin-top:30px;"><a href="/stays" class="btn btn--outline">Browse more stays</a></p>
+  </div>
+
+  <%- include("partials/footer") %>
+  <script src="/js/main.js"></script>
+</body>
+</html>

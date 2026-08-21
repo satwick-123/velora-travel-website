@@ -1,0 +1,19 @@
+<nav class="nav">
+  <a class="nav__logo" href="/">Velora</a>
+  <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav__links" id="navLinks">
+    <a href="/">Home</a>
+    <a href="/stays">Stays</a>
+    <% if (user) { %>
+      <span class="nav__user">Hi, <%= user.name.split(" ")[0] %></span>
+      <form action="/logout" method="POST" class="nav__logout-form">
+        <button type="submit" class="link-btn">Logout</button>
+      </form>
+    <% } else { %>
+      <a href="/login">Login</a>
+      <a class="btn btn--ghost-invert" href="/signup">Sign up</a>
+    <% } %>
+  </div>
+</nav>

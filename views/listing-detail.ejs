@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include("partials/navbar") %>
+
+  <div class="listing">
+    <div>
+      <div class="listing__image">
+        <img src="<%= hotel.image %>" alt="<%= hotel.name %>, <%= hotel.location %>">
+      </div>
+      <p class="listing__location" style="margin-top:22px;"><%= hotel.location %></p>
+      <h1><%= hotel.name %></h1>
+      <p class="ticket__rating">&#9733; <%= hotel.rating %> rating</p>
+      <p class="listing__desc"><%= hotel.description %></p>
+    </div>
+
+    <aside class="booking-card">
+      <div class="booking-card__price">&#8377;<%= hotel.price.toLocaleString("en-IN") %> <span>/ night</span></div>
+
+      <% if (error) { %>
+        <div class="form-error"><%= error %></div>
+      <% } %>
+
+      <% if (user) { %>
+        <form action="/stays/<%= hotel.id %>/book" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="checkIn">Check-in</label>
+              <input type="date" id="checkIn" name="checkIn" required>
+            </div>
+            <div class="form-group">
+              <label for="checkOut">Check-out</label>
+              <input type="date" id="checkOut" name="checkOut" required>
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom:18px;">
+            <label for="guests">Guests</label>
+            <select id="guests" name="guests">
+              <option value="1">1 guest</option>
+              <option value="2" selected>2 guests</option>
+              <option value="3">3 guests</option>
+              <option value="4">4 guests</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn--brass btn--full">Book now</button>
+        </form>
+      <% } else { %>
+        <a href="/login" class="btn btn--brass btn--full">Log in to book</a>
+        <p class="login-note">New to Velora? <a href="/signup">Create an account</a> &mdash; it takes a minute.</p>
+      <% } %>
+    </aside>
+  </div>
+
+  <%- include("partials/footer") %>
+  <script src="/js/main.js"></script>
+</body>
+</html>
