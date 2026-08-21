@@ -79,44 +79,35 @@ Velora is a full-stack travel-stay booking platform inspired by boutique vacatio
 ## Project Structure
 
 Velora/
-│
 ├── routes/
-│ ├── index.js # home, /stays
-│ ├── auth.js # /login, /signup, /logout
-│ └── booking.js # listing detail, /stays/:id/book, confirmation
-│
+│   ├── index.js      # home, /stays
+│   ├── auth.js       # /login, /signup, /logout
+│   └── booking.js    # listing detail, /stays/:id/book, confirmation
 ├── middleware/
-│ └── auth.js # attachUser, requireLogin
-│
+│   └── auth.js       # attachUser, requireLogin
 ├── data/
-│ ├── hotels.js # in-memory stays + bookings
-│ └── users.js # in-memory users
-│
+│   ├── hotels.js     # in-memory stays + bookings
+│   └── users.js      # in-memory users
 ├── views/
-│ ├── partials/
-│ │ ├── navbar.ejs
-│ │ └── footer.ejs
-│ │
-│ ├── home.ejs
-│ ├── listings.ejs
-│ ├── listing-detail.ejs
-│ ├── booking-confirm.ejs
-│ ├── login.ejs
-│ ├── signup.ejs
-│ └── 404.ejs
-│
+│   ├── partials/
+│   │   ├── navbar.ejs
+│   │   └── footer.ejs
+│   ├── home.ejs
+│   ├── listings.ejs
+│   ├── listing-detail.ejs
+│   ├── booking-confirm.ejs
+│   ├── login.ejs
+│   ├── signup.ejs
+│   └── 404.ejs
 ├── public/
-│ ├── css/
-│ │ └── style.css
-│ ├── images/ # branded SVG placeholders per stay
-│ └── js/
-│ └── main.js
-│
+│   ├── css/
+│   │   └── style.css
+│   └── js/
+│       └── main.js
 ├── screenshots/
-│ ├── home.png
-│ ├── listings.png
-│ └── booking.png
-│
+│   ├── home.png
+│   ├── listings.png
+│   └── booking.png
 ├── app.js
 ├── package.json
 ├── package-lock.json
