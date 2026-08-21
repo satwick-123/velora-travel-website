@@ -1,19 +1,38 @@
-# Velora
+<div align="center">
 
-A small travel-stay booking site built with Express and EJS. Browse stays, sign up, log in, and book a stay with dates and guest count.
+# 🧳 Velora
+
+**Find a quiet place to land.**
+
+*A small, characterful stay-booking app for hillside cottages, backwater houseboats, and desert havelis — built with Express, EJS, and a soft spot for vintage travel tickets.*
 
 ![Home page](screenshots/home.png)
 
+</div>
+
+---
+
+## What this is
+
+Velora is a boutique booking site for the kind of stays you don't find by scrolling an algorithm — a coffee-plantation retreat in Coorg, a houseboat drifting through Alleppey's backwaters, a haveli room facing the Jaisalmer fort. Six curated stays, a full login/booking flow, and a design language borrowed from boarding passes and dashed ticket stubs.
+
+No ads, no infinite scroll, no "12 people are looking at this right now." Just stays worth going quiet for.
+
+## Take the tour
+
+| Browse | Book | Confirm |
+|---|---|---|
+| ![Listings](screenshots/listings.png) | ![Booking](screenshots/booking.png) | Ticket-style confirmation with your dates, guests, and total |
+
 ## Features
 
-- Home page with featured stays
-- Full stays listing page
-- Listing detail page with a booking form
-- Signup / login / logout (sessions, hashed passwords)
-- Booking requires login; you're sent to login and back to the listing you wanted afterward
-- Booking confirmation page with a ticket-style summary
-- Custom 404 page
-- Responsive layout (mobile nav)
+- 🏡 Home page with featured stays + a full listings page
+- 🎫 Listing detail pages with a live booking form
+- 🔐 Real auth — signup, login, logout, hashed passwords, sessions
+- ↩️ Try to book without logging in and you're sent to log in, then dropped right back where you were headed
+- 🧾 Boarding-pass-style booking confirmation
+- 📱 Responsive, down to a collapsing mobile nav
+- 🪧 A custom 404 for anyone who wanders off the map
 
 ## Getting started
 
@@ -23,9 +42,9 @@ cp .env.example .env   # then edit .env if you want
 npm start
 ```
 
-Open **http://localhost:3000**.
+Open **http://localhost:3000** and start exploring.
 
-For auto-reload during development:
+For auto-reload while you tinker:
 
 ```bash
 npm run dev
@@ -33,11 +52,13 @@ npm run dev
 
 ## Environment variables
 
-See `.env.example`. `SESSION_SECRET` should be a long random string in any real deployment — the fallback in the code is for local development only.
+See `.env.example`. Set `SESSION_SECRET` to a long random string before deploying anywhere real — the fallback baked into the code is for local development only, not for production.
 
-## Data
+## How the data works
 
-Stays and users are stored **in memory** (`data/hotels.js`, `data/users.js`) so the app runs with zero setup. Data resets whenever the server restarts. To persist data, swap those two files for a real database (e.g. MongoDB with Mongoose) — the rest of the app (routes, views) doesn't need to change, only the functions each module exports.
+Stays and users live **in memory** (`data/hotels.js`, `data/users.js`), so the app runs with zero setup — no database to install, no connection string to fight with. The tradeoff: everything resets when the server restarts.
+
+Ready to make it permanent? Swap those two files for a real database (MongoDB with Mongoose is a natural fit) and keep the same exported function shapes — nothing in `routes/` or `views/` needs to change.
 
 ## Project structure
 
@@ -57,21 +78,22 @@ Velora/
 │   ├── partials/               # navbar, footer
 │   └── *.ejs                    # pages
 ├── public/
-│   ├── css/style.css
+│   ├── css/style.css            # navy / parchment / brass design system
+│   ├── images/                   # branded SVG placeholders per stay
 │   └── js/main.js
 └── .env.example
 ```
 
-## Fixes made to the original version
+## Roadmap ideas
 
-See the pull request / commit history, or ask the assistant that generated this project — the short version is: added missing routes and pages that the nav promised (Stays, Login, booking flow), added authentication, added form validation and error states, fixed a broken `.env.example` that was never actually read by the app, added a `.gitignore` so secrets and `node_modules` don't get committed, and gave the site a full page set (listing detail, confirmation, login, signup, 404) instead of only a homepage.
+Some natural next stops if you want to keep building:
 
-## Screenshots
-
-| Home | Listings | Booking |
-|---|---|---|
-| ![Home](screenshots/home.png) | ![Listings](screenshots/listings.png) | ![Booking](screenshots/booking.png) |
+- Swap in-memory data for MongoDB or Postgres
+- Add real photography per stay
+- Search and filter by location, price, or rating
+- Guest reviews
+- Email confirmation on booking
 
 ## License
 
-For personal/learning use.
+For personal and learning use.

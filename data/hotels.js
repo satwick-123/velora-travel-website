@@ -8,7 +8,7 @@ const hotels = [
     location: "Ooty, Tamil Nadu",
     price: 2499,
     rating: 4.6,
-    image: "https://picsum.photos/seed/velora1/600/400",
+    image: "/images/cozy-hills.svg",
     description:
       "A quiet hillside cottage surrounded by tea gardens, perfect for a peaceful weekend away from the city."
   },
@@ -18,7 +18,7 @@ const hotels = [
     location: "Goa",
     price: 3499,
     rating: 4.8,
-    image: "https://picsum.photos/seed/velora2/600/400",
+    image: "/images/ocean-view.svg",
     description:
       "A beachfront stay with private balconies overlooking the Arabian Sea, minutes from the sand."
   },
@@ -28,7 +28,7 @@ const hotels = [
     location: "Coorg, Karnataka",
     price: 2799,
     rating: 4.5,
-    image: "https://picsum.photos/seed/velora3/600/400",
+    image: "/images/forest-stay.svg",
     description:
       "Wake up to misty coffee plantations and birdsong at this cosy forest retreat in Coorg."
   },
@@ -38,7 +38,7 @@ const hotels = [
     location: "Jaisalmer, Rajasthan",
     price: 3199,
     rating: 4.4,
-    image: "https://picsum.photos/seed/velora4/600/400",
+    image: "/images/desert-mirage.svg",
     description:
       "Traditional haveli-style rooms with rooftop views of the golden fort and the Thar Desert."
   },
@@ -48,7 +48,7 @@ const hotels = [
     location: "Alleppey, Kerala",
     price: 4299,
     rating: 4.9,
-    image: "https://picsum.photos/seed/velora5/600/400",
+    image: "/images/backwater-bliss.svg",
     description:
       "A houseboat stay drifting along the calm backwaters, complete with home-cooked Kerala meals."
   },
@@ -58,7 +58,7 @@ const hotels = [
     location: "Manali, Himachal Pradesh",
     price: 2999,
     rating: 4.7,
-    image: "https://picsum.photos/seed/velora6/600/400",
+    image: "/images/mountain-echo.svg",
     description:
       "A snug wooden lodge with views of snow-capped peaks and easy access to nearby treks."
   }
